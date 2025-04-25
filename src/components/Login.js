@@ -1,82 +1,65 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) return alert("Please enter both email and password");
+    const res = await fetch("http://localhost:5000/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
-      localStorage.setItem("token", res.data.token);
-      window.location.href = "/dashboard";
-    } catch (err) {
-      alert("Login failed");
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem("token", data.token);
+      navigate("/dashboard");
+    } else {
+      alert(data.message || "Login failed");
     }
   };
 
   return (
-    <div style={styles.container}>
-      <form onSubmit={handleSubmit} style={styles.card}>
-        <h2 style={styles.heading}>Login</h2>
-        <input
-          type="email"
-          placeholder="Email"
-          style={styles.input}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          style={styles.input}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit" style={styles.button}>Login</button>
-      </form>
+    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
+        <h1 className="text-2xl font-serif font-semibold text-gray-800 mb-6 text-center">
+          News Portal Login
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block mb-1 text-sm text-gray-600">Email</label>
+            <input
+              type="email"
+              className="w-full border rounded px-3 py-2"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1 text-sm text-gray-600">Password</label>
+            <input
+              type="password"
+              className="w-full border rounded px-3 py-2"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-black text-white py-2 rounded hover:bg-gray-800 transition"
+          >
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#f0f2f5",
-  },
-  card: {
-    background: "#ffffff",
-    padding: "40px 30px",
-    borderRadius: "10px",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-    width: "100%",
-    maxWidth: "400px",
-  },
-  heading: {
-    textAlign: "center",
-    marginBottom: "20px",
-    color: "#333",
-  },
-  input: {
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    padding: "12px",
-    fontSize: "16px",
-    marginBottom: "15px",
-  },
-  button: {
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    borderRadius: "5px",
-    padding: "12px",
-    fontSize: "16px",
-    cursor: "pointer",
-  },
 };
 
 export default Login;
