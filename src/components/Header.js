@@ -1,5 +1,5 @@
 import React from "react";
-import { getToken, logout } from "../auth";
+import { getToken } from "../auth";
 
 const Header = ({ onLoginClick, onLogout }) => {
   const isLoggedIn = !!getToken();
