@@ -5,7 +5,8 @@ import LoginModal from "./components/LoginModal";
 import RetryModal from "./components/RetryModal";
 import { fetchNews } from "./api";
 import { logout } from "./auth";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import SEO from "./SEO";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   const [news, setNews] = useState([]);
@@ -27,15 +28,11 @@ function App() {
 
   return (
     <HelmetProvider>
-      <Helmet>
-        <title>Daily News - Your trusted news source</title>
-        <meta
-          name="description"
-          content="Get top daily news from around the world. Reliable and up-to-date headlines for you."
-        />
-        <meta name="keywords" content="news, daily news, headlines, India news, world news" />
-        <meta name="author" content="News App" />
-      </Helmet>
+   <SEO 
+        title="Latest News - Quick News Hub"
+        description="Explore the latest trending news from around the world."
+        url="https://quicknewshub.netlify.app/home"
+      />
       <Header
         onLoginClick={() => setShowLogin(true)}
         onLogout={() => {

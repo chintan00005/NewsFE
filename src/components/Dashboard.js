@@ -3,8 +3,8 @@ import { AuthContext } from "../context/AuthContext";
 import { getNews } from "../services/NewsService";
 import Login from "./Login";
 import NewsModal from "./NewsModal";
-import { Helmet } from 'react-helmet-async';
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import SEO from "../SEO";
+
 
 const Dashboard = () => {
   const { token, logout } = useContext(AuthContext);
@@ -29,11 +29,12 @@ const Dashboard = () => {
   }, [token]);
 
   return (
-        <HelmetProvider>
-          <Helmet>
-          <title>Dashboard - Daily News</title>
-          <meta name="description" content="Your personal dashboard to manage news preferences and bookmarks." />
-          </Helmet>
+   <>
+       <SEO 
+        title="Latest News - Quick News Hub"
+        description="Explore the latest trending news from around the world."
+        url="https://quicknewshub.netlify.app/home"
+      />
     <div className="p-5">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">📰 News Portal</h1>
@@ -62,7 +63,7 @@ const Dashboard = () => {
         </div>
       )}
     </div>
-    </HelmetProvider>
+</>
   );
 };
 
