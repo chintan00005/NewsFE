@@ -22,7 +22,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
       <meta name="twitter:title" content={title || 'Quick News Hub'} />
       <meta name="twitter:description" content={description || 'Get real-time global news updates.'} />
       <meta name="twitter:image" content={image || 'https://quicknewshub.netlify.app/thumbnail.png'} />
-      <meta name="google-site-verification" content="lSbWYjsoFGIuYQ3cgLqfd5fslc26vC-1QP7OZNj8cHw" />
+      <meta name="google-site-verification" content="T8d3ema8J-fAYlXbg3tqG4wryGvRqwcVtdWCLmqWuwc" />
     </Helmet>
   );
 };
