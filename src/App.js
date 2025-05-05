@@ -31,7 +31,7 @@ function App() {
    <SEO 
         title="Latest News - Quick News Hub"
         description="Explore the latest trending news from around the world."
-        url="https://quicknewshub.netlify.app/home"
+        url="https://quicknewshub.netlify.app"
       />
       <Header
         onLoginClick={() => setShowLogin(true)}
