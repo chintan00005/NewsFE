@@ -9,7 +9,7 @@ const BreakingNewsBanner = ({ headlines = [] }) => {
         <div
           className="inline-block whitespace-nowrap"
           style={{
-            animation: "marquee 15s linear infinite",
+            animation: "marquee 12s linear infinite",
             padding: "0.5rem 0", // direct fallback padding
           }}
         >
