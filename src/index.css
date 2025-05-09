@@ -74,3 +74,12 @@ button:hover {
 .modal-content h2 {
   margin-top: 0;
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

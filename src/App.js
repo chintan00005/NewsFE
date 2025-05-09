@@ -7,6 +7,7 @@ import { fetchNews } from "./api";
 import { logout } from "./auth";
 import SEO from "./SEO";
 import { HelmetProvider } from "react-helmet-async";
+import BreakingNewsBanner from "./components/BreakingNewsBanner"; // 👈 import it
 
 function App() {
   const [news, setNews] = useState([]);
@@ -28,11 +29,15 @@ function App() {
 
   return (
     <HelmetProvider>
-   <SEO 
+      <SEO 
         title="Latest News - Quick News Hub"
         description="Explore the latest trending news from around the world."
         url="https://quicknewshub.netlify.app"
       />
+
+      {/* 🔴 Breaking news banner */}
+      <BreakingNewsBanner headlines={news} />
+
       <Header
         onLoginClick={() => setShowLogin(true)}
         onLogout={() => {
