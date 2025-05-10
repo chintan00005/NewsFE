@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { loginUser } from "../api";
-import { setToken } from "../auth";
+import { AuthContext } from "../context/AuthContext";
+
 
 const LoginModal = ({ onClose, onSuccess }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  
+const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { token } = await loginUser(email, password);
-      setToken(token);
+      login(token);
       onSuccess();
     } catch (err) {
       setError("Login Failed");

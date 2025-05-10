@@ -1,18 +1,19 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
+import { setToken as saveToken, getToken, removeToken } from "../auth";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [token, setToken] = useState(getToken() || "");
 
   const login = (newToken) => {
     setToken(newToken);
-    localStorage.setItem("token", newToken);
+    saveToken(newToken);
   };
 
   const logout = () => {
     setToken("");
-    localStorage.removeItem("token");
+    removeToken();
   };
 
   return (
