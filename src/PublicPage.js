@@ -12,7 +12,7 @@ const PublicPage = () => {
   const [news, setNews] = useState([]);
   const [showLogin, setShowLogin] = useState(false);
   const [showRetry, setShowRetry] = useState(false);
-  const { logout } = useContext(AuthContext);
+  const { logout, token } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const getNews = async () => {
@@ -25,8 +25,12 @@ const PublicPage = () => {
   };
 
   useEffect(() => {
+  if (token) {
+    navigate("/dashboard");
+  } else {
     getNews();
-  }, []);
+  }
+}, [token, navigate]);
 
   return (
     <>

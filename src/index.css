@@ -83,3 +83,130 @@ button:hover {
     transform: translateX(-100%);
   }
 }
+.dashboard-header {
+  background-color: #4299e1; /* light blue */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+.dashboard-title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: white; /* ensures it's white even if inherited styles change */
+}
+.search-disabled {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.timestamp {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.blue-header {
+  background-color: #4299e1; /* same as button */
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.search-disabled {
+  margin-left: 0.25rem;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+.logout-button {
+  background-color: white;
+  color: #4299e1;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.logout-button:hover {
+  background-color: #e2e8f0; /* light gray on hover */
+}
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.page-content {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2b6cb0;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+}
+
+.header .logo a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
