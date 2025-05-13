@@ -15,7 +15,7 @@ const Header = ({ onLoginClick, onLogout }) => {
         <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
         <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link>
         <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link>
-        <Link to="/privacy" className={location.pathname === "/privacy" ? "active" : ""}>Privacy</Link>
+        <Link to="/privacy-policy" className={location.pathname === "/privacy-policy" ? "active" : ""}>Privacy</Link>
       </nav>
       <div>
         {isLoggedIn ? (

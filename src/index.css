@@ -178,6 +178,14 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
+.page-content h2 {
+  margin-bottom: 1rem;
+}
+
+.page-content h3 {
+  margin-top: 1.5rem;
+  color: #2b6cb0;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -210,3 +218,28 @@ button:hover {
   font-weight: bold;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Optional Footer Styling */
+footer {
+  background-color: #2b6cb0;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+}
