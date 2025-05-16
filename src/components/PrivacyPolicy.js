@@ -5,41 +5,23 @@ const PrivacyPolicy = () => {
     <div className="page-content">
       <h2>Privacy Policy</h2>
       <p>
-        At Quick News Hub, we are committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by our platform.
+        At Quick News Hub, we respect your privacy. We do not collect personally identifiable information unless you explicitly provide it.
       </p>
-
-      <h3>1. Information We Collect</h3>
+      <h3>Information We Collect</h3>
       <p>
-        We may collect basic information such as your email address when you interact with our site, especially during login or contact submissions.
+        We may collect non-personal information such as browser type, device info, and pages visited for analytical purposes only.
       </p>
-
-      <h3>2. How We Use Your Information</h3>
+      <h3>Use of Cookies</h3>
       <p>
-        We use the information to provide and improve our services, send occasional updates, and ensure a personalized experience on our platform.
+        Our site may use cookies to enhance user experience. You can disable cookies through your browser settings.
       </p>
-
-      <h3>3. Sharing of Information</h3>
+      <h3>Third-Party Ads</h3>
       <p>
-        We do not sell, trade, or share your personal data with third parties unless required by law or with your explicit consent.
+        We may show ads from third-party networks like Google AdSense, which may use cookies to serve ads based on your prior visits to our website or other sites.
       </p>
-
-      <h3>4. Cookies</h3>
+      <h3>Changes to This Policy</h3>
       <p>
-        Our website may use cookies to enhance user experience and collect non-personal visitor data through analytics tools.
-      </p>
-
-      <h3>5. Your Rights</h3>
-      <p>
-        You may contact us at any time to request access to the data we hold about you or to request its deletion.
-      </p>
-
-      <h3>6. Contact</h3>
-      <p>
-        For any questions or concerns about this policy, please reach out to us at: <strong>devinnovation00005@gmail.com</strong>
-      </p>
-
-      <p>
-        This Privacy Policy may be updated occasionally. Please check back periodically for the latest changes.
+        We may update this Privacy Policy occasionally. Please check this page regularly for changes.
       </p>
     </div>
   );

@@ -1,7 +1,5 @@
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { useState, useEffect } from "react";
 import { getNews } from "../services/NewsService";
-import NewsModal from "./NewsModal";
 import BreakingNewsBanner from "./BreakingNewsBanner";
 import SEO from "../SEO";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -18,53 +16,40 @@ const timeAgo = (date) => {
 };
 
 const Dashboard = () => {
-  const { token } = useContext(AuthContext);
   const [news, setNews] = useState([]);
-  const [error, setError] = useState(false);
- const filter = "";
 
   const loadNews = async () => {
     try {
-      const data = await getNews(token);
-      if (data.length === 0) setError(true);
-      else {
-        setNews(data);
-        setError(false);
-      }
-    } catch (err) {
-      setError(true);
+      const data = await getNews(); // no token
+      setNews(data);
+    } catch {
+      setNews([]);
     }
   };
 
-
   useEffect(() => {
     loadNews();
-    // eslint-disable-next-line
-}, []);
-
-  const filteredNews = filter
-    ? news.filter((item) =>
-        item.title.toLowerCase().includes(filter.toLowerCase()) ||
-        item.description?.toLowerCase().includes(filter.toLowerCase())
-      )
-    : news;
+  }, []);
 
   return (
     <>
-      <SEO 
-        title="Dashboard - Quick News Hub"
-        description="Private dashboard for latest news."
+      <SEO
+        title="Latest News - Quick News Hub"
+        description="Catch up on the latest global news updates, technology, and headlines."
         url="https://quicknewshub.netlify.app/dashboard"
       />
 
       <BreakingNewsBanner headlines={news} />
 
       <div className="p-5">
-        {error ? (
-          <NewsModal message="Failed to load news" onRetry={loadNews} />
+        {news.length === 0 ? (
+          <div className="card">
+            <h2>No news available right now</h2>
+            <p>Please check back later for the latest updates.</p>
+          </div>
         ) : (
           <div className="news-list">
-            {filteredNews.map((item, idx) => (
+            {news.map((item, idx) => (
               <div key={idx} className="card">
                 {item.urlToImage && (
                   <LazyLoadImage

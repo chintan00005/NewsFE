@@ -5,10 +5,13 @@ const About = () => {
     <div className="page-content">
       <h2>About Quick News Hub</h2>
       <p>
-        Quick News Hub is your go-to destination for lightning-fast updates on global happenings. We deliver curated, reliable, and concise news from multiple trusted sources—so you're always informed, without the clutter.
+        Quick News Hub is a platform delivering the latest headlines from around the world in real-time.
+        We aim to provide timely, relevant, and accurate information across different topics like politics,
+        business, technology, and more.
       </p>
       <p>
-        Whether it's breaking news, tech, politics, or entertainment—we’ve got you covered with a user-friendly experience.
+        Our goal is to keep readers informed with a clean and clutter-free experience.
+        We do not endorse or promote any political or commercial agenda.
       </p>
     </div>
   );
