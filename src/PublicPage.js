@@ -38,6 +38,17 @@ const PublicPage = () => {
     loadNews();
   }, []);
 
+  // AdSense render script
+  useEffect(() => {
+    try {
+      if (window.adsbygoogle && Array.isArray(window.adsbygoogle)) {
+        window.adsbygoogle.push({});
+      }
+    } catch (e) {
+      console.error("AdSense error:", e);
+    }
+  }, [loading]);
+
   return (
     <>
       <SEO
@@ -47,6 +58,18 @@ const PublicPage = () => {
       />
 
       <BreakingNewsBanner headlines={news} />
+
+      {/* Google AdSense ad block */}
+      <div style={{ padding: "1rem", textAlign: "center" }}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-3663961532896148"
+          data-ad-slot="4055532133"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+      </div>
 
       <div className="p-5">
         {loading ? (
